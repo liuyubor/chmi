@@ -1,0 +1,12 @@
+extends partial/layout
+
+block content
+    include components/main
+    article
+      header
+        h2.title!=page.title
+        if page.hideDate !== true
+          i.icon-calendar
+          span!=date(page.date, 'YYYY.MM.DD')
+      .content!=page.content
+    //- include  _partial/comment
