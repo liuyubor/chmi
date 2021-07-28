@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>" color-mode="light">
-
-  <%- partial('_partial/header') %>
+  
+  <%- partial('_partial/head') %>
 
   <body>
-    <div id="main" >
-      <%- partial('_partial/navigation') %> 
+    <!-- 导航栏、头像、名字 -->
+    <%- partial('_partial/header') %>
 
-      <div class="main-container">
-        <%- body %>
-        <!-- <%- partial('_partial/footer') %> -->
-      </div>
+    <!-- 主题内容 -->
+    <main><%- body %></main>
 
-      <!-- <div class="tools-bar">
-        <%- partial('_partial/backtop') %>
-        <%- partial('_partial/search') %>
-        <%- partial('_partial/colorscheme') %>
+    <!-- 页脚 -->
+    <%- partial('_partial/footer') %>
+
+    <!-- <div class="tools-bar">
+      <%- partial('_partial/backtop') %>
+      <%- partial('_partial/search') %>
+      <%- partial('_partial/colorscheme') %>
       </div> -->
-    </div>
   </body>
 
 </html>

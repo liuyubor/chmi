@@ -1,0 +1,214 @@
+/* 删除所有浏览器中的margin和padding */
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  box-sizing: border-box;
+  background-color: var(--bg-body);
+  transition: color 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif;
+  -webkit-text-size-adjust: 100%; /* 防止iOS中方向改变后字体大小的调整。 */
+}
+
+body.hidden {
+  overflow: hidden;
+  padding-right: 6px;
+}
+
+@media (max-width: 888px) {
+  .container {
+    width: 90%;
+  }
+  .index .post-list,
+  .friend-index .friend-list,
+  .archives .post-list,
+  .tag-index .tag-list,
+  .about-index .markdown-body {
+    padding: 0;
+  }
+  .category-index .category-list {
+    padding: 0 40px;
+  }
+  .btn-catalog {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    padding: 10px;
+    z-index: 999;
+    color: var(--color-text-a);
+    background-color: rgb(255 255 255 / 50%);
+  }
+  .btn-catalog i {
+    font-size: 24px;
+  }
+  .post-catalog {
+    top: 44px!important;
+    bottom: unset!important;
+    right: 0!important;
+    width: unset!important;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px!important;
+    background-color: #fff;
+    box-shadow: -1px 2px 5px 0px #999;
+    opacity: .9;
+    z-index: 9;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    transition: top 0.2s ease, opacity 0.2s ease;
+  }
+  .post-catalog.hidden {
+    opacity: 0!important;
+    top: 0!important;
+    z-index: -1!important;
+  }
+  .post-catalog .title {
+    display: none;
+  }
+  .post-catalog .catalog-content {
+    height: unset!important;
+  }
+  .back-to-top {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 887px) {
+  .index .post-list,
+  .friend-index .friend-list,
+  .archives .post-list,
+  .tag-index .tag-list,
+  .about-index .markdown-body {
+    padding: 0 20px;
+  }
+}
+
+/*控制整个滚动条*/
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+  height: 6px;
+  background-clip: padding-box;
+}
+
+/*滚动条中滑块部分*/
+::-webkit-scrollbar-thumb {
+background-color: rgba(144,147,153,.5);
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: #a4a4a4;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.98);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+a:hover {
+  color: #006CFF;
+}
+
+header {
+  padding: 48px 48px;
+  text-align: center;
+}
+
+img.avatar {
+  margin-bottom: 24px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 24px 24px 24px;
+  }
+  img.avatar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+h1.nickname {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+p.description {
+  font-size: 16px;
+  padding: 24px;
+  color: #495057;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li.nav-item {
+  display: inline-block;
+  padding: 9px 16px;
+  font-size: 1.0em;
+  font-weight: bold;
+  text-align: center;
+}
+
+main {
+  max-width: 850px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1.8rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: calc(var(--height)*1px - 8rem - 7rem);
+}
+
+.content-year {
+  font-size: 0.5rem;
+  font-weight: bold;
+  margin: 24px 0 16px;
+  color: #868e96;
+  padding: 0 24px;
+}
+
+.post-item {
+  padding: 16px 24px;
+  display: block;
+}
+
+.title {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.time-m-d {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  color: #ced4da;
+}
+
+
+
+
+
+

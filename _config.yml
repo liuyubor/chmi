@@ -19,12 +19,12 @@
 # 网站图标
 favicon:
   enable: true
-  icon: /images/favicon.png
-  touch_icon: /images/favicon.png
+  icon: /images/favicon.ico
+  touch_icon: /images/favicon.ico
 
 # 用户头像与昵称
 avatar:
-  author_photo: /images/avatar.png
+  author_photo: /images/avatar.jpg
   author_nickname: Oranges
   author_description: Less is more.
   path: /
@@ -85,7 +85,7 @@ navbar:
     key: archives
   -
     name: Categories
-    enable: true
+    enable: false
     path: /categories/
     key: categories
   -
