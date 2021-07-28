@@ -1,0 +1,125 @@
+<!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+<% if (page.type === "tags") { %> 
+  <!-- 标签页 url形式：https://yoursite/tags/ -->
+  <div class="container tag-index">
+    <div>
+      <%- list_tags({ class: "tag" }) %>
+    </div>
+  </div>
+  <% } %>
+
+
+<% if (page.type === "friends") { %>
+  <!-- 朋友页 url形式：https://yoursite/friends/ -->
+  <div class="container friend-index">
+    <div class="friend-list">
+      <% for(let friend of theme.friends) { %>
+        <div class="friend-list-item">
+          <span class="nickname">@ <%- friend.nickname %></span>
+          <a href="<%- friend.site %>" target="_blank">
+            <span class="site-path"><%- friend.site %></span>
+          </a>
+          <p class="card-meta">
+            <%- friend.meta %>
+          </p>
+        </div>
+      <% } %>
+    </div>
+    <div class="markdown-body">
+      <%- page.content %>
+    </div>
+  </div>
+  <% } %>
+
+
+<% if(page.type === "about") { %>
+<!-- 关于页 url形式：https://yoursite/about/ -->
+  <div class="container about-index">
+    <div class="markdown-body">
+      <%- page.content %>
+    </div>
+  </div>
+<% } %>
+
+
+<% if (!page.type) { %>
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  
+  <div class="post-details">
+    <article class="post">
+      <h2 class="post-title"><%- page.title %></h2>
+      <div class="post-info">
+        <span><%- page.date.format("MM-DD") %></span>
+        <span>
+          ::before
+          <!-- read time counter -->
+        </span>
+
+        <% for(item of theme.navbar) { 
+          if (item.key === 'tags' && item.enable) {
+            if(page.tags && page.tags.length > 0) { %>
+              <span class="post-tags">
+                <% for(let item of page.tags.data) { %>
+                <span class="span-tag">
+                  <a href="<%= url_for(item.path)%>" title="<%- item.name %>">
+                    <b>#</b> <%- item.name %>
+                  </a>
+                </span>
+                <% } %>
+              </span>
+          <% }
+          }
+        } %>
+      </div>
+
+      <div class="post-content">
+        <%- page.more %>
+      </div>
+    </article>
+
+
+    <% if (theme.prevnext.enable) { %>
+      <nav class="prev-or-next">
+        <% if(page.next) { %>
+          <a href="<%- url_for(page.next.path) %>" class="prev_link">
+            <span><%= __('prev') %></span>
+
+          </a>
+        <% } %>
+        
+        <% if (page.prev) { %>
+          <a href="<%- url_for(page.prev.path) %>" class="next_link">
+            <span><%= __('next') %></span>
+
+          </a>
+        <% } %>
+
+      </nav>
+    <% } %>
+
+    <%- partial("_partial/catalog") %>
+
+  </div>
+<% } %>
+
+
+
+
+
+

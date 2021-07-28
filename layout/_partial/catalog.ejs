@@ -1,0 +1,9 @@
+<% if (theme.catalog.enable && toc(page.content)) { %>
+
+  <div class="post-catalog">
+    <%- toc(page.content, { "list_number": false }) %>
+  </div>
+
+  <%- js(['/js/catalog.js']) %>
+
+<% } %>

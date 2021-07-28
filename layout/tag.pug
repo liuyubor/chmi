@@ -1,9 +1,0 @@
-extends partial/layout
-
-block content
-    include components/main
-    include components/posts
-    .tags-container
-        .circle 标签
-        .list!=list_tags({style: 'none', separator: '  '})
-    +tags()
